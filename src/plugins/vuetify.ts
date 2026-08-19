@@ -20,7 +20,7 @@ const githubDarkTheme = {
     'on-background': '#c9d1d9',
     'on-surface': '#f0f6fc',
     'border-color': '#30363d',
-    title: '#1F883D'
+    title: '#1F883D',
   },
 }
 
@@ -41,7 +41,7 @@ const githubLightTheme = {
     'on-background': '#24292f',
     'on-surface': '#000000',
     'border-color': '#d0d7de',
-    title: '#1F883D'
+    title: '#1F883D',
   },
 }
 
@@ -51,6 +51,13 @@ export default createVuetify({
     themes: {
       githubDark: githubDarkTheme,
       githubLight: githubLightTheme,
+    },
+  },
+  defaults: {
+    global: {
+      style: {
+        fontFamily: "'Inter', sans-serif",
+      },
     },
   },
 })

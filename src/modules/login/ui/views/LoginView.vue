@@ -4,19 +4,19 @@
       <v-col>
         <div class="d-flex flex-column aling-center justify-center" style="min-height: 90vh">
           <div class="text-center">
-            <h2 class="text-center my-1">detalha<span class="text-title">aí</span></h2>
+            <h2 class="text-center my-1 font-mono">detalha<span class="text-title">aí</span></h2>
             <p class="mt-1">Sua gestão financeira em detalhes.</p>
           </div>
           <form-container>
             <v-row>
               <v-col>
-                <span class="d-block my-3">Email</span>
+                <span class="d-block my-3 font-mono">Email</span>
                 <v-text-field variant="solo-filled" label="Seu melhor email" hide-details="auto" />
               </v-col>
             </v-row>
             <v-row>
               <v-col>
-                <span class="d-block my-3">Senha</span>
+                <span class="d-block my-3 font-mono">Senha</span>
                 <v-text-field
                   variant="solo-filled"
                   type="password"
