@@ -5,7 +5,7 @@ import axios from "axios";
 export default class LoggerService {
   private isDev: boolean
 
-  constructor(environment = import.meta.env.VITE_API_BASE_URL) {
+  constructor(environment = import.meta.env.VITE_ENVIROMENT) {
     this.isDev = environment === 'development'
   }
 
@@ -17,6 +17,8 @@ export default class LoggerService {
   }
 
   debug(message: string, data?: unknown) {
+    console.log('i', this.isDev);
+
     if (this.isDev) console.log(message, data)
   }
 
