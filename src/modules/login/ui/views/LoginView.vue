@@ -16,6 +16,8 @@
                   variant="solo-filled"
                   label="Seu melhor email"
                   hide-details="auto"
+                  :rules="[formRules.required]"
+                  @keyup.enter="login"
                 />
               </v-col>
             </v-row>
@@ -28,6 +30,8 @@
                   type="password"
                   label="Uma senha forte"
                   hide-details="auto"
+                  :rules="[formRules.required]"
+                  @keyup.enter="login"
                 />
               </v-col>
             </v-row>
@@ -52,6 +56,7 @@ import FormContainer from '../components/FormContainer.vue'
 import { auth } from '../../repository/auth_repository.ts'
 import { loggerService } from '@/shared/services/logger_service.ts'
 import { useRouter } from 'vue-router'
+import { formRules } from '@/shared/helpers/form_rules.ts'
 
 const router = useRouter()
 
