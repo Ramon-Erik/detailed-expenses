@@ -41,6 +41,7 @@
                 text="realizar login"
                 class="w-100 py-6"
                 color="primary text-uppercase"
+                :loading="loading"
               />
             </v-row>
           </form-container>
@@ -61,7 +62,9 @@ import { formRules } from '@/shared/helpers/form_rules.ts'
 const router = useRouter()
 
 const email = ref<string | null>('ramonerik29a@gmail.com')
-const password = ref<string | null>('67ChaoVerde!$')
+const password = ref<string | null>('')
+
+const loading = ref(false)
 
 const login = () => {
   const payload = {
@@ -71,11 +74,15 @@ const login = () => {
 
   if (payload.email == '' || payload.password == '') return
 
+  loading.value = true
+
   try {
     auth.login(payload.email, payload.password)
     router.push('home')
   } catch (error) {
     loggerService.axiosError('auth', error)
+  } finally {
+    loading.value = false
   }
 }
 </script>
