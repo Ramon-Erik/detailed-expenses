@@ -16,7 +16,7 @@
                   variant="solo-filled"
                   label="Seu melhor email"
                   hide-details="auto"
-                  :rules="[formRules.required]"
+                  :rules="[formRules.required, formRules.validEmail]"
                   @keyup.enter="login"
                 />
               </v-col>
