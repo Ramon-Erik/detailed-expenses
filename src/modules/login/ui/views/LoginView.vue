@@ -58,8 +58,10 @@ import { auth } from '../../repository/auth_repository.ts'
 import { loggerService } from '@/shared/services/logger_service.ts'
 import { useRouter } from 'vue-router'
 import { formRules } from '@/shared/helpers/form_rules.ts'
+import LoginService from '../../services/login_service.ts'
 
 const router = useRouter()
+const loginService = new LoginService()
 
 const email = ref<string | null>('ramonerik29a@gmail.com')
 const password = ref<string | null>('')
@@ -74,10 +76,8 @@ const login = () => {
 
   if (payload.email == '' || payload.password == '') return
 
-  loading.value = true
-
   try {
-    auth.login(payload.email, payload.password)
+    loginService.submitLogin(payload)
     router.push('home')
   } catch (error) {
     loggerService.axiosError('auth', error)
