@@ -18,12 +18,38 @@ const router = createRouter({
     {
       path: '/login',
       component: LoginView,
+      meta: {
+        noAuth: true,
+      },
     },
     {
       path: '/home',
       component: HomeView,
+      meta: {
+        requiresAuth: true,
+      },
     },
   ],
+})
+
+interface Rules {
+  requiresAuth?: boolean
+  noAuth?: boolean
+}
+
+router.beforeEach((to, from) => {
+  const isLogged = !!sessionStorage.getItem('access_token')
+  const rules = to.meta as Rules
+
+  if (isLogged && rules.noAuth) {
+    return '/home'
+  }
+
+  if (!isLogged && rules.requiresAuth) {
+    return '/login'
+  }
+
+  return true
 })
 
 export default router
