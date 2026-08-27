@@ -4,7 +4,7 @@
       <div class="main-layout h-100 d-flex flex-column">
         <header-layout />
         <div class="flex-grow-1">
-          <v-container pa-0>
+          <v-container class="pa-0">
             <router-view />
           </v-container>
           <temporary-components />
