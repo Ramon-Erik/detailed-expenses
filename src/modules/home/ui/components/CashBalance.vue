@@ -1,15 +1,9 @@
 <script setup lang="ts">
 import { formatCurrencyBR } from '@/shared/helpers/masks'
-import { computed, onMounted } from 'vue'
-import HomeService from '../../services/home_service'
 import { useHomeStore } from '../../stores/home_store'
 
-const homeService = new HomeService()
 const store = useHomeStore()
 
-onMounted(() => {
-  homeService.loadInfo()
-})
 </script>
 
 <template>

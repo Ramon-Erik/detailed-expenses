@@ -1,5 +1,11 @@
 export interface ApiResponse<T> {
   success: boolean
   data: T
-  meta: Record<string, unknown> | null
+  meta: Meta | null
+}
+
+interface Meta {
+  page: number
+  pageSize: number
+  total: number
 }

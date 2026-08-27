@@ -1,4 +1,4 @@
-import type { ApiResponse } from "@/shared/dtos/api_response_dto"
+import type { ApiResponse } from '@/shared/dtos/api_response_dto'
 
 export interface InvoiceDetail {
   invoiceMonth: string
@@ -27,3 +27,11 @@ export interface DashboardData {
 
 // Exemplo de tipo utilitário pronto para uso na API
 export type DashboardResponse = ApiResponse<DashboardData>
+
+export interface Invoice {
+  invoiceMonth: string
+  accountId: string
+  accountName: string
+  total: number
+  open: number
+}
