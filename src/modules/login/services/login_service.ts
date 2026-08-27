@@ -1,5 +1,5 @@
 import type { LoginRequest, LoginResponse, User } from '@/shared/dtos/auth_dto'
-import { auth } from '../repository/auth_repository'
+import { auth } from '../repositories/auth_repository'
 import { loggerService } from '@/shared/services/logger_service'
 import { useLoginStore } from '../stores/auth_store'
 

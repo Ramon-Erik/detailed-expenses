@@ -54,7 +54,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import FormContainer from '../components/FormContainer.vue'
-import { auth } from '../../repository/auth_repository.ts'
 import { loggerService } from '@/shared/services/logger_service.ts'
 import { useRouter } from 'vue-router'
 import { formRules } from '@/shared/helpers/form_rules.ts'
