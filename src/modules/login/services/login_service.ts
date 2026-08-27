@@ -2,9 +2,11 @@ import type { LoginRequest, LoginResponse, User } from '@/shared/dtos/auth_dto'
 import { auth } from '../repositories/auth_repository'
 import { loggerService } from '@/shared/services/logger_service'
 import { useLoginStore } from '../stores/auth_store'
+import { useRouter } from 'vue-router'
 
 export default class LoginService {
   private loginStore = useLoginStore()
+  private router = useRouter()
 
   protected loading = false
 
@@ -15,6 +17,8 @@ export default class LoginService {
       const response = await auth.login(payload.email, payload.password)
       this.loginStore.setUser(response.data)
       this.setAccessToken(response.data)
+
+      this.router.push('/home')
     } catch (error) {
       loggerService.error('Auth', error)
     }
