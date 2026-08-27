@@ -21,6 +21,7 @@ const githubDarkTheme = {
     'on-surface': '#f0f6fc',
     'border-color': '#30363d',
     title: '#1F883D',
+    text: '#b5b5b6'
   },
 }
 
@@ -42,6 +43,7 @@ const githubLightTheme = {
     'on-surface': '#000000',
     'border-color': '#d0d7de',
     title: '#1F883D',
+    text: '#383838'
   },
 }
 
