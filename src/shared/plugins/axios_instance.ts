@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { loggerService } from '../services/logger_service'
 
 const baseURL = import.meta.env.VITE_API_BASE_URL
 
@@ -22,6 +23,7 @@ axiosInstance.interceptors.request.use(async (config) => {
   const refreshToken = sessionStorage.getItem('refresh_token')
 
   if (isTokenExpired() && refreshToken) {
+    loggerService.error('Token expirado. Refresh.')
     try {
       const response = await axios.post(`${baseURL}/auth/refresh`, {
         refreshToken,
