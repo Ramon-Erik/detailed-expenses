@@ -3,7 +3,7 @@ import type { NavItem } from './dtos/nav_item_dto'
 import NavLink from './components/NavLink.vue'
 
 const navigationList: NavItem[] = [
-  { icon: 'mdi-plus', color: 'primary', label: 'Nova Movimentação', action: () => {} },
+  { icon: 'mdi-plus', color: 'primary', label: 'Nova Movimentação', action: () => {console.log('oii')} },
 ]
 </script>
 

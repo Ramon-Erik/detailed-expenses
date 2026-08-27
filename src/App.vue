@@ -5,6 +5,7 @@
         <header-layout />
         <div class="flex-grow-1">
           <router-view />
+          <temporary-components />
         </div>
         <div class="position-sticky bottom-0 left-0 w-100 d-flex justify-center align-center">
           <bottom-menu-layout />
@@ -17,6 +18,7 @@
 <script lang="ts" setup>
 import BottomMenuLayout from './shared/layout/BottomMenuLayout.vue'
 import HeaderLayout from './shared/layout/HeaderLayout.vue'
+import TemporaryComponents from './shared/layout/TemporaryComponents.vue';
 </script>
 
 <style>
