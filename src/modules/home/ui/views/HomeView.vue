@@ -13,9 +13,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <v-container>
-    <CashBalance />
-    <MonthlyStatment />
-    <LatestTransactions />
-  </v-container>
+  <CashBalance />
+  <MonthlyStatment />
+  <LatestTransactions />
 </template>
