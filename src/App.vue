@@ -1,13 +1,22 @@
 <template>
   <v-app>
     <v-main>
-      <router-view />
+      <div class="main-layout h-100 d-flex flex-column">
+        <header-layout />
+        <div class="flex-grow-1">
+          <router-view />
+        </div>
+        <div class="position-sticky bottom-0 left-0 w-100 d-flex justify-center align-center">
+          <bottom-menu-layout />
+        </div>
+      </div>
     </v-main>
   </v-app>
 </template>
 
 <script lang="ts" setup>
-  //
+import BottomMenuLayout from './shared/layout/BottomMenuLayout.vue'
+import HeaderLayout from './shared/layout/HeaderLayout.vue'
 </script>
 
 <style>
