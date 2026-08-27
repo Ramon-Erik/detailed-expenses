@@ -8,7 +8,7 @@ import TransactionItem from '@/shared/components/TransactionItem.vue';
     <v-card-text>
       <p class="text-uppercase">Lançamentos recentes</p>
       <div class="d-flex flex-column ga-4">
-        <TransactionItem v-for="t in [1,2,3,4]" />
+        <TransactionItem v-for="t in [1,2,3]" />
       </div>
     </v-card-text>
   </v-card>
