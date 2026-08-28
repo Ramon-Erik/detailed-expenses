@@ -7,6 +7,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import LoginView from '@/modules/login/ui/views/LoginView.vue'
 import HomeView from '@/modules/home/ui/views/HomeView.vue'
+import CredentialsView from '@/modules/credentials/ui/views/CredentialsView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -25,6 +26,13 @@ const router = createRouter({
     {
       path: '/home',
       component: HomeView,
+      meta: {
+        requiresAuth: true,
+      },
+    },
+    {
+      path: '/credentials',
+      component: CredentialsView,
       meta: {
         requiresAuth: true,
       },
