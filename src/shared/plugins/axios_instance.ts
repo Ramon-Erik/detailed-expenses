@@ -23,7 +23,7 @@ axiosInstance.interceptors.request.use(async (config) => {
   const refreshToken = sessionStorage.getItem('refresh_token')
 
   if (isTokenExpired() && refreshToken) {
-    loggerService.error('Token expirado. Refresh.')
+    console.warn('Token expirado. Refresh.')
     try {
       const response = await axios.post(`${baseURL}/auth/refresh`, {
         refreshToken,
@@ -35,9 +35,10 @@ axiosInstance.interceptors.request.use(async (config) => {
       sessionStorage.setItem('access_token', data.access_token)
       sessionStorage.setItem('refresh_token', data.refresh_token)
       sessionStorage.setItem('expires_at', data.expires_at.toString())
-    } catch {
+    } catch (error) {
       sessionStorage.clear()
       window.location.href = '/login'
+      loggerService.error('error', error)
       return Promise.reject(new Error('Sessão expirada'))
     }
   }

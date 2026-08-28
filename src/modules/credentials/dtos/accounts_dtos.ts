@@ -8,8 +8,15 @@ export interface Account {
   kind: "bank" | "wallet" | "credit_card"
   closing_day: string | null
   due_day: string |null
-  initial_balance: number
   archived_at: string | null
+}
+export interface RawAccount {
+  name: string
+  color: string
+  kind: "bank" | "wallet" | "credit_card"
+  closingDay: string | null
+  dueDay: string |null
 }
 
 export type AccountsResponse = ApiResponse<Account[]>
+export type CreateAccountsResponse = ApiResponse<Account>
