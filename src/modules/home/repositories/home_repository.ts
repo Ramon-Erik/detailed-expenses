@@ -10,6 +10,7 @@ export class HomeRepository extends BaseRepository {
     const yearMonth = `${year}-${month}`
     return await this.get<DashboardResponse>('/dashboard', {
       month: yearMonth,
+      recentLimit: 5
     })
   }
 }
