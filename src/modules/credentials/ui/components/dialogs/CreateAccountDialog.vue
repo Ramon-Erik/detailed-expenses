@@ -18,9 +18,9 @@ async function handleSubmit() {
   loading.value = true
   try {
     accountStore.hasCompleted = true
-    console.log('md', accountStore.hasCompleted, accountStore.formData);
+    console.log('md', accountStore.hasCompleted, accountStore.formData)
 
-    accountStore.closeModal()
+    accountStore.closeDialog()
   } catch (error) {
     console.error('Erro ao salvar:', error)
   } finally {
@@ -39,7 +39,7 @@ const dayRules = [
     <v-card rounded="lg">
       <v-card-title class="d-flex justify-space-between align-center pa-4">
         <span class="text-h6 font-weight-bold">Nova Conta / Cartão</span>
-        <v-btn icon="mdi-close" variant="text" size="small" @click="accountStore.closeModal" />
+        <v-btn icon="mdi-close" variant="text" size="small" @click="accountStore.closeDialog" />
       </v-card-title>
 
       <v-divider />
@@ -48,7 +48,7 @@ const dayRules = [
         <v-form ref="formRef" @submit.prevent="handleSubmit">
           <v-row>
             <!-- Nome da Conta -->
-             {{ accountStore.formData.name }}
+            {{ accountStore.formData.name }}
             <v-col cols="12">
               <v-text-field
                 v-model="accountStore.formData.name"
@@ -122,7 +122,7 @@ const dayRules = [
       <v-divider />
 
       <v-card-actions class="pa-4 d-flex justify-end ga-2">
-        <v-btn variant="outlined" color="grey-darken-1" @click="accountStore.closeModal">
+        <v-btn variant="outlined" color="grey-darken-1" @click="accountStore.closeDialog">
           Cancelar
         </v-btn>
         <v-btn color="primary" variant="flat" :loading="loading" @click="handleSubmit">

@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import type { Account, RawAccount } from '../../dtos/accounts_dtos'
 
-export const useCreateAccountDialogStore = defineStore('accountModal', () => {
+export const useCreateAccountDialogStore = defineStore('accountDialog', () => {
   const isOpen = ref(false)
   const hasCompleted = ref(false)
 
@@ -17,12 +17,12 @@ export const useCreateAccountDialogStore = defineStore('accountModal', () => {
 
   const formData = ref<RawAccount>({ ...defaultForm })
 
-  const openModal = (initialData?: Partial<RawAccount>) => {
+  const openDialog = (initialData?: Partial<RawAccount>) => {
     formData.value = { ...defaultForm, ...initialData }
     isOpen.value = true
   }
 
-  const closeModal = () => {
+  const closeDialog = () => {
     isOpen.value = false
   }
 
@@ -35,8 +35,8 @@ export const useCreateAccountDialogStore = defineStore('accountModal', () => {
     isOpen,
     hasCompleted,
     formData,
-    openModal,
-    closeModal,
+    openDialog,
+    closeDialog,
     resetForm,
   }
 })

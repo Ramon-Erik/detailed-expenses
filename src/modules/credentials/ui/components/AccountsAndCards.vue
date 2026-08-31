@@ -6,6 +6,7 @@ import AccountItem from './AccountItem.vue'
 
 import { onMounted, ref, watch } from 'vue'
 import CreateAccountDialog from './dialogs/CreateAccountDialog.vue'
+import DeleteAccountDialog from './dialogs/DeleteAccountDialog.vue'
 
 const accountsService = new AccountsService()
 const store = useCredentialStore()
@@ -33,7 +34,7 @@ onMounted(() => {
     <v-expansion-panel>
       <v-expansion-panel-title>
         <div class="w-100 d-flex ga-4">
-          <v-btn icon="mdi-plus" variant="outlined" @click="dialog.openModal" />
+          <v-btn icon="mdi-plus" variant="outlined" @click="dialog.openDialog" />
           <p class="text-uppercase">Contas e cartões</p>
         </div>
       </v-expansion-panel-title>
@@ -52,4 +53,5 @@ onMounted(() => {
   </v-expansion-panels>
 
   <create-account-dialog />
+  <delete-account-dialog />
 </template>
