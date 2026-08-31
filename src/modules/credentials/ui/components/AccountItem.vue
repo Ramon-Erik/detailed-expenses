@@ -26,7 +26,7 @@ watch(
   <div class="d-flex align-center justify-space-between">
     <div class="d-flex align-center ga-4">
       <div>
-        <v-avatar>
+        <v-avatar :color="item.color">
           {{ item.name.slice(0, 2) }}
         </v-avatar>
       </div>

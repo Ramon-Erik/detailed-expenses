@@ -12,7 +12,7 @@ const accountsService = new AccountsService()
 const store = useCredentialStore()
 const dialog = useCreateAccountDialogStore()
 
-const openedPanels = ref<string[]>([])
+const openedPanels = ref<string[]>(['accounts'])
 
 const openCreateAccountDialog = () => {
   if (!openedPanels.value.includes('accounts')) {
@@ -24,8 +24,6 @@ const openCreateAccountDialog = () => {
 watch(
   () => dialog.hasCompleted,
   (completed) => {
-    console.log('comp cha', completed)
-
     if (completed) {
       accountsService.submitNewAccount(dialog.formData)
       dialog.resetForm()
@@ -39,7 +37,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <v-expansion-panels v-model="openedPanels">
+  <v-expansion-panels v-model="openedPanels" multiple >
     <v-expansion-panel value="accounts">
       <v-expansion-panel-title>
         <div class="w-100 d-flex ga-4">
