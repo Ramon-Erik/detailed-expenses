@@ -48,7 +48,6 @@ const dayRules = [
         <v-form ref="formRef" @submit.prevent="handleSubmit">
           <v-row>
             <!-- Nome da Conta -->
-            {{ accountStore.formData.name }}
             <v-col cols="12">
               <v-text-field
                 v-model="accountStore.formData.name"
