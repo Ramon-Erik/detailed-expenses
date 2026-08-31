@@ -2,14 +2,13 @@ import { loggerService } from '@/shared/services/logger_service'
 import { useCredentialStore } from '../stores/credentials_store'
 import { accountsRepository } from '../repositories/accounts_repository'
 import type { RawAccount } from '../dtos/accounts_dtos'
+import { ref } from 'vue'
 
 export default class AccountsService {
   private store = useCredentialStore()
 
-  loading = false
-
   async loadAccountsAndCards() {
-    this.loading = true
+    this.store.loading = true
 
     try {
       const response = await accountsRepository.getCardsAndAccounts()
@@ -18,12 +17,12 @@ export default class AccountsService {
     } catch (error) {
       loggerService.axiosError('get accounts', error)
     } finally {
-      this.loading = false
+      this.store.loading = false
     }
   }
 
   async submitNewAccount(account: RawAccount) {
-    this.loading = true
+    this.store.loading = true
 
     try {
       await accountsRepository.createNewAccount(account)
@@ -31,12 +30,12 @@ export default class AccountsService {
     } catch (error) {
       loggerService.axiosError('create accounts', error)
     } finally {
-      this.loading = false
+      this.store.loading = false
     }
   }
 
   async submitDeleteAccount(id: string) {
-    this.loading = true
+    this.store.loading = true
 
     try {
       await accountsRepository.deleteAccount(id)
@@ -44,7 +43,7 @@ export default class AccountsService {
     } catch (error) {
       loggerService.axiosError('delete accounts', error)
     } finally {
-      this.loading = false
+      this.store.loading = false
     }
   }
 }
