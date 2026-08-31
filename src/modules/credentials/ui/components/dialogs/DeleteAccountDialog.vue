@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useDeleteAccountDialogStore } from '@/modules/credentials/stores/dialogs/delete_account_store'
+import { formRules } from '@/shared/helpers/form_rules'
 import { normalizeKind } from '@/shared/helpers/masks'
 import { ref } from 'vue'
 
@@ -39,10 +40,16 @@ async function handleSubmit() {
       <v-card-text class="pa-4">
         <v-form ref="formRef" @submit.prevent="handleSubmit">
           <span class="d-block mb-3">
-            Escreva corretamente <pre class="d-inline-block px-2 my-2">"{{ accountStore.selectedItem.name }}"</pre> na caixa para
-            <span class="font-weight-bold">apagar permanentemente</span>.
+            Escreva corretamente
+            <pre class="d-inline-block px-2 my-2">"{{ accountStore.selectedItem.name }}"</pre>
+            na caixa para <span class="font-weight-bold">apagar permanentemente</span>.
           </span>
-          <v-text-field variant="outlined" placeholder="Dgite o nome para confirmar"/>
+          <v-text-field
+            variant="outlined"
+            placeholder="Dgite o nome para confirmar"
+            v-model="accountStore.itemName"
+            :rules="[formRules.required, formRules.hasToBeEqual(accountStore.selectedItem.name)]"
+          />
         </v-form>
       </v-card-text>
 

@@ -10,10 +10,12 @@ export const useDeleteAccountDialogStore = defineStore('DeleteAccountDialog', ()
   const selectedItem = ref<Account>({} as Account)
 
   const itemName = ref('')
+  const itemId = ref('')
 
   const openDialog = (initialData?: Account) => {
     if (initialData) {
       selectedItem.value = { ...initialData }
+      itemId.value = selectedItem.value.id
       isOpen.value = true
     }
   }
@@ -23,6 +25,9 @@ export const useDeleteAccountDialogStore = defineStore('DeleteAccountDialog', ()
   }
 
   const resetForm = () => {
+    selectedItem.value = {} as Account
+    itemId.value = ''
+    itemName.value = ''
     hasCompleted.value = false
   }
 
@@ -30,6 +35,7 @@ export const useDeleteAccountDialogStore = defineStore('DeleteAccountDialog', ()
     isOpen,
     selectedItem,
     itemName,
+    itemId,
     hasCompleted,
     openDialog,
     closeDialog,

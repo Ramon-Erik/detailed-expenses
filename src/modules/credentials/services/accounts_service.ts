@@ -16,7 +16,7 @@ export default class AccountsService {
 
       this.store.accounts = response.data
     } catch (error) {
-      loggerService.axiosError('load accounts', error)
+      loggerService.axiosError('get accounts', error)
     } finally {
       this.loading = false
     }
@@ -29,7 +29,20 @@ export default class AccountsService {
       await accountsRepository.createNewAccount(account)
       this.loadAccountsAndCards()
     } catch (error) {
-      loggerService.axiosError('load accounts', error)
+      loggerService.axiosError('create accounts', error)
+    } finally {
+      this.loading = false
+    }
+  }
+
+  async submitDeleteAccount(id: string) {
+    this.loading = true
+
+    try {
+      await accountsRepository.deleteAccount(id)
+      this.loadAccountsAndCards()
+    } catch (error) {
+      loggerService.axiosError('delete accounts', error)
     } finally {
       this.loading = false
     }

@@ -1,11 +1,25 @@
 <script setup lang="ts">
-import { normalizeKind } from '@/shared/helpers/masks';
+import { normalizeKind } from '@/shared/helpers/masks'
 import type { Account } from '../../dtos/accounts_dtos'
-import { useDeleteAccountDialogStore } from '../../stores/dialogs/delete_account_store';
+import { useDeleteAccountDialogStore } from '../../stores/dialogs/delete_account_store'
+import { watch } from 'vue'
+import AccountsService from '../../services/accounts_service'
 
 defineProps<{ item: Account }>()
 
 const dialog = useDeleteAccountDialogStore()
+
+const accountsService = new AccountsService()
+
+watch(
+  () => dialog.hasCompleted,
+  (completed) => {
+    if (completed) {
+      accountsService.submitDeleteAccount(dialog.itemId)
+      dialog.resetForm()
+    }
+  },
+)
 </script>
 
 <template>
@@ -19,9 +33,7 @@ const dialog = useDeleteAccountDialogStore()
       <div class="d-flex flex-column">
         <div class="d-flex ga-2">
           <span>{{ item.name }}</span>
-          <span>
-            ({{ normalizeKind(item.kind) }})
-          </span>
+          <span> ({{ normalizeKind(item.kind) }}) </span>
         </div>
         <div>
           <span v-if="item.due_day && item.closing_day">
@@ -31,9 +43,12 @@ const dialog = useDeleteAccountDialogStore()
       </div>
     </div>
     <div>
-      <v-btn color="error" icon="mdi-trash-can-outline" variant="text" @click="dialog.openDialog(item)" />
+      <v-btn
+        color="error"
+        icon="mdi-trash-can-outline"
+        variant="text"
+        @click="dialog.openDialog(item)"
+      />
     </div>
   </div>
-
-
 </template>

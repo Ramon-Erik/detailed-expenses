@@ -29,6 +29,10 @@ export class AccountsRepository extends BaseRepository {
       dueDay: account.dueDay,
     })
   }
+
+  async deleteAccount(id: string) {
+    return await this.delete(`/accounts/${id}`)
+  }
 }
 
 export const accountsRepository = new AccountsRepository()

@@ -15,4 +15,10 @@ export default class BaseRepository {
     const response = axiosInstance.post<T>(url, params)
     return (await response).data
   }
+
+  protected async delete<T>(path: string) {
+    const url = this.baseUrl + path
+    const response = axiosInstance.delete<T>(url)
+    return (await response).data
+  }
 }
