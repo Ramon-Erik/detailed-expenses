@@ -16,3 +16,7 @@ export const formatCurrencyBR = (value: number | string) => {
     currency: 'BRL',
   }).format(numericValue)
 }
+
+export const normalizeKind = (k: 'wallet' | 'credit_card' | 'bank') => {
+  return k == 'wallet' ? 'Carteira' : 'Crédito'
+}

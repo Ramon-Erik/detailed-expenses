@@ -1,11 +1,11 @@
 <script setup lang="ts">
+import { normalizeKind } from '@/shared/helpers/masks';
 import type { Account } from '../../dtos/accounts_dtos'
+import { useDeleteAccountDialogStore } from '../../stores/dialogs/delete_account_store';
 
 defineProps<{ item: Account }>()
 
-const normalizeKind = (k: 'wallet' | 'credit_card' | 'bank') => {
-  return k == 'wallet' ? 'Carteira' : 'Crédito'
-}
+const dialog = useDeleteAccountDialogStore()
 </script>
 
 <template>
@@ -31,7 +31,9 @@ const normalizeKind = (k: 'wallet' | 'credit_card' | 'bank') => {
       </div>
     </div>
     <div>
-      <v-btn color="error" icon="mdi-trash-can-outline" variant="text" />
+      <v-btn color="error" icon="mdi-trash-can-outline" variant="text" @click="dialog.openDialog(item)" />
     </div>
   </div>
+
+
 </template>
