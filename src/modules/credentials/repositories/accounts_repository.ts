@@ -4,7 +4,7 @@ import type {
   AccountsResponse,
   CreateAccountsResponse,
   RawAccount,
-} from '../dtos/accounts_dtos'
+} from '../dtos/accounts_dto'
 
 export class AccountsRepository extends BaseRepository {
   async getCardsAndAccounts() {

@@ -1,7 +1,7 @@
 import { loggerService } from '@/shared/services/logger_service'
 import { useCredentialStore } from '../stores/credentials_store'
 import { accountsRepository } from '../repositories/accounts_repository'
-import type { RawAccount } from '../dtos/accounts_dtos'
+import type { RawAccount } from '../dtos/accounts_dto'
 import { ref } from 'vue'
 
 export default class AccountsService {

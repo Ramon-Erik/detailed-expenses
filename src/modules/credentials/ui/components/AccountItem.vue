@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { normalizeKind } from '@/shared/helpers/masks'
-import type { Account } from '../../dtos/accounts_dtos'
+import type { Account } from '../../dtos/accounts_dto'
 import { useDeleteAccountDialogStore } from '../../stores/dialogs/delete_account_store'
 import { watch } from 'vue'
 import AccountsService from '../../services/accounts_service'

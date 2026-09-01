@@ -1,7 +1,7 @@
 import { loggerService } from '@/shared/services/logger_service'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import type { Account, RawAccount } from '../../dtos/accounts_dtos'
+import type { Account, RawAccount } from '../../dtos/accounts_dto'
 
 export const useDeleteAccountDialogStore = defineStore('DeleteAccountDialog', () => {
   const isOpen = ref(false)
