@@ -1,20 +1,19 @@
 <script setup lang="ts">
 import { useCredentialStore } from '../../stores/credentials_store.ts'
-import { useCreateAccountDialogStore } from '../../stores/dialogs/create_account_store.ts'
 import TemplateItem from './templates/TemplateItem.vue'
 
 import { onMounted, ref, watch } from 'vue'
-import CreateAccountDialog from './dialogs/CreateAccountDialog.vue'
-import DeleteAccountDialog from './dialogs/DeleteAccountDialog.vue'
 import TemplatesService from '../../services/templates_service.ts'
+import { useCreateTemplateDialogStore } from '../../stores/dialogs/templates/create_template_store.ts'
+import CreateTemplateDialog from './dialogs/templates/CreateTemplateDialog.vue'
 
 const templatesService = new TemplatesService()
 const store = useCredentialStore()
-const dialog = useCreateAccountDialogStore()
+const dialog = useCreateTemplateDialogStore()
 
 const openedPanels = ref<string[]>([])
 
-const openCreateAccountDialog = () => {
+const openCreateTemplateDialog = () => {
   if (!openedPanels.value.includes('templates')) {
     openedPanels.value.push('templates')
   }
@@ -41,7 +40,7 @@ onMounted(() => {
     <v-expansion-panel value="templates">
       <v-expansion-panel-title>
         <div class="w-100 d-flex ga-4">
-          <v-btn icon="mdi-plus" variant="outlined" @click.stop="openCreateAccountDialog" />
+          <v-btn icon="mdi-plus" variant="outlined" @click.stop="openCreateTemplateDialog" />
           <p class="text-uppercase">Templates</p>
         </div>
       </v-expansion-panel-title>
@@ -59,6 +58,6 @@ onMounted(() => {
     </v-expansion-panel>
   </v-expansion-panels>
 
-  <create-account-dialog />
-  <delete-account-dialog />
+  <create-template-dialog />
+  <!-- <delete-account-dialog /> -->
 </template>
