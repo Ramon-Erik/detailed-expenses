@@ -4,16 +4,16 @@ export interface Template {
   id: string
   name: string
   color: string
-  default_amount: number
-  payment_method: string
+  defaultAmount: number
+  paymentMethod: string
   direction: string
 }
 
 export interface RawTemplate {
   name: string
   color: string
-  default_amount: number
-  payment_method: string
+  defaultAmount: number
+  paymentMethod: string
   direction: 'expense' | 'income'
 }
 

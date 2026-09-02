@@ -17,8 +17,8 @@ export const useCreateAccountDialogStore = defineStore('accountDialog', () => {
 
   const formData = ref<RawAccount>({ ...defaultForm })
 
-  const openDialog = (initialData?: Partial<RawAccount>) => {
-    formData.value = { ...defaultForm, ...initialData }
+  const openDialog = () => {
+    formData.value = { ...defaultForm }
     isOpen.value = true
   }
 

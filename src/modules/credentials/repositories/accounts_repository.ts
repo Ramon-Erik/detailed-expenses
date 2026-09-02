@@ -14,20 +14,7 @@ export class AccountsRepository extends BaseRepository {
   async createNewAccount(account: RawAccount) {
     console.log(account)
 
-    if (account.kind == 'wallet') {
-      return await this.post<CreateAccountsResponse>('/accounts', {
-        name: account.name,
-        kind: account.kind,
-        color: account.color,
-      })
-    }
-    return await this.post<CreateAccountsResponse>('/accounts', {
-      name: account.name,
-      color: account.color,
-      kind: account.kind,
-      closingDay: account.closingDay,
-      dueDay: account.dueDay,
-    })
+    return await this.post<CreateAccountsResponse>('/accounts', account)
   }
 
   async deleteAccount(id: string) {
