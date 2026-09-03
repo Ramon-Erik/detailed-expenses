@@ -13,8 +13,6 @@ async function handleSubmit() {
   loading.value = true
   try {
     store.hasCompleted = true
-    console.log('md', store.hasCompleted, store.formData)
-
     store.closeDialog()
   } catch (error) {
     console.error('Erro ao salvar:', error)

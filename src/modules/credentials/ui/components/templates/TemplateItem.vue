@@ -28,17 +28,11 @@ defineProps<{ item: Template }>()
           {{ item.name.slice(0, 2) }}
         </v-avatar>
       </div>
-      <!-- <div class="d-flex flex-column">
+      <div class="d-flex flex-column">
         <div class="d-flex ga-2">
           <span>{{ item.name }}</span>
-          <span> ({{ normalizeKind(item.kind) }}) </span>
         </div>
-        <div>
-          <span v-if="item.due_day && item.closing_day">
-            fecha {{ item.closing_day }} - vence {{ item.due_day }}
-          </span>
-        </div>
-      </div> -->
+      </div>
     </div>
     <!-- <div>
       <v-btn

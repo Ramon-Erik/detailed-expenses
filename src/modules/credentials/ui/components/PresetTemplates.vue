@@ -24,8 +24,8 @@ watch(
   () => dialog.hasCompleted,
   (completed) => {
     if (completed) {
-      // templatesService.submitNewAccount(dialog.formData)
-      // dialog.resetForm()
+      templatesService.submitNewAccount(dialog.formData)
+      dialog.resetForm()
     }
   },
 )
